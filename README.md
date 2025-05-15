@@ -1,5 +1,5 @@
 # ur-protective-stop-recorder
-Python program to trigger recording for a camera when (tentatively) Protective Stops occurs.  
+Python program to trigger recording for a camera when Protective Stops occurs.  
 
 1. Install python via Microsoft Store
 2. (Recommended) Set-up Python Virtual Environment
