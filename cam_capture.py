@@ -90,10 +90,6 @@ def query_robot_generation(client_socket):
     except socket.error as e:
         print(f"Connection error: {e}")
 
-# def get_current_date_and_time():
-#     current_time = time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime())
-#     return
-
 def add_timestamp(frame):
     # Get the current time as a string
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
@@ -129,7 +125,6 @@ def stream_video_to_buffer(buffer_duration, additional_duration, sock, robot_gen
     capturing_post_key_frames = False
     capture_once = False 
     
-    
     # Open the default camera (usually the built-in webcam)
     # TODO Consider if there's multiple cameras on the PC (Webcam + External)
     
@@ -145,7 +140,6 @@ def stream_video_to_buffer(buffer_duration, additional_duration, sock, robot_gen
         print("Robot generation: cb-series")
     elif robot_gen == "5":
         polling_function = robot_status_polling_eseries
-        type
         print("Robot generation: e-series")
     else:
         raise ValueError(f"Unknown Robot generation: {robot_gen}")
@@ -182,22 +176,12 @@ def stream_video_to_buffer(buffer_duration, additional_duration, sock, robot_gen
         # Display the frame
         cv2.imshow("Webcam", frame)
 
-        # Press 'q' to quit
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
-            break
-        
-        # TEMP For testing
-        if key == ord('c'):
-            robot_unlock_protective_stop_and_play(sock)
-
         if isRobotStopped is True and capturing_post_key_frames is False and capture_once is False:
             capturing_post_key_frames = True
 
             keypress_time = time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime())
             print(f"Start of camera recording:{keypress_time}")
             print("Please wait white we capture additional frames after keypress...")
-
         
             # If capturing post-key frames, count the frames
         if capturing_post_key_frames:
@@ -223,6 +207,16 @@ def stream_video_to_buffer(buffer_duration, additional_duration, sock, robot_gen
                 
         if isRobotStopped is False and capture_once is True:
             capture_once = False
+        
+        # Press 'q' to quit
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
+            break
+        
+        # TEMP For testing
+        if key == ord('c'):
+            robot_unlock_protective_stop_and_play(sock)
+        
 
     # Release the capture and close the window
     capture.release()
