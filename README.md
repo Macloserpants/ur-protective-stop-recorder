@@ -1,5 +1,5 @@
 # ur-protective-stop-recorder
-Python program to trigger recording for a camera when Protective Stops occurs.  
+Python program to trigger recording for a camera when Protective Stops occurs. Video recording is set to 10s pre-Protective Stop, 5s post-Protective Stop. Duration is adjustable at the  
 
 1. Install python via Microsoft Store
 2. (Recommended) Set-up Python Virtual Environment
@@ -17,6 +17,7 @@ Python program to trigger recording for a camera when Protective Stops occurs.
 ## FOR TESTING PURPOSES
 Use 'c' as keypress to Unlock Protective Stop and play program.
 
-Note_1: Program can automatically detect if robot is cb-series or e-series.  
-Note_2: Program is currently only programmed for Protective Stops and not other Stops.  
-Note_3: Program was tested with only 1 camera. There might be issues potential issues to automatically detect the desired camera, if device has multiple cameras  
+Note_1: Recording timestamp is based on the time Robot encounters a Protective stop. 
+Note_2: Program can automatically detect if robot is cb-series or e-series.  
+Note_3: Program is currently only programmed for Protective Stops and not other Stops.  
+Note_4: Program was tested with only 1 camera. There might be issues potential issues to automatically detect the desired camera, if device has multiple cameras  
