@@ -32,10 +32,6 @@ def robot_status_polling_cbseries(client_socket):
         elif current_robot_status == "Safetymode: PROTECTIVE_STOP":
             return True
         
-        else:
-            print("Status invalid")
-        
-        
     except socket.error as e:
         print(f"Connection error: {e}")
 
@@ -45,7 +41,6 @@ def robot_status_polling_eseries(client_socket):
         client_socket.sendall(message.encode())
         data = client_socket.recv(1024)
 
-        # print(f"Received from server: {data.decode()}")
         current_robot_status = data.decode().strip()
 
         if current_robot_status == "Safetystatus: NORMAL":
@@ -53,11 +48,7 @@ def robot_status_polling_eseries(client_socket):
         
         elif current_robot_status == "Safetystatus: PROTECTIVE_STOP":
             return True
-        
-        else:
-            print("Status invalid")
-        
-        
+
     except socket.error as e:
         print(f"Connection error: {e}")
 
@@ -180,6 +171,7 @@ def stream_video_to_buffer(buffer_duration, additional_duration, sock, robot_gen
             capturing_post_key_frames = True
 
             keypress_time = time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime())
+            print("WARNING: Protective Stop occurrance detected.")
             print(f"Start of camera recording:{keypress_time}")
             print("Please wait white we capture additional frames after keypress...")
         
