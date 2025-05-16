@@ -14,6 +14,9 @@ Python program to trigger recording for a camera when Protective Stops occurs.
   - Run virtual environement (Follow steps similar to Point 2. just without "pip install opencv-python" command
   - Run python script: cd path/to/folder > type "python cam_capture.py"
 
+## FOR TESTING PURPOSES
+Use 'c' as keypress to Unlock Protective Stop and play program.
+
 Note_1: Program can automatically detect if robot is cb-series or e-series.  
 Note_2: Program is currently only programmed for Protective Stops and not other Stops.  
 Note_3: Program was tested with only 1 camera. There might be issues potential issues to automatically detect the desired camera, if device has multiple cameras  
