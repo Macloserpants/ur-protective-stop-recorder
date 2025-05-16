@@ -11,9 +11,11 @@ if exist "%VENV_DIR%" (
 ) else (
     echo No, Virtual environment does not exist. Creating virtual environment...
     python -m venv %VENV_DIR%
+    echo Virtual environment folder created: %VENV_DIR%
 )
 
 echo Activating virtual environment...
+powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process"
 call .\myenv\Scripts\activate.bat
 
 echo Checking Python executable...
