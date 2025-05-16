@@ -1,7 +1,4 @@
 @echo off
-setlocal
-
-@REM start cmd /k "echo Opening new Command Prompt terminal"
 
 set VENV_DIR=myenv
 
